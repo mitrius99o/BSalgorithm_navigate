@@ -8,9 +8,9 @@ namespace DirectionsAB
 {
     abstract class WayBuilder
     {
-        public abstract void BuildWayA();
-        public abstract void BuildWayFork();
-        public abstract void BuildWayB();
-        public abstract List<Point> GetWay();
+        public abstract bool BuildWayA(ref Point a);
+        public abstract void BuildWayFork(ref Point a, ref Point b);
+        public abstract void BuildWayB(ref Point b);
+        public abstract ResultWay GetWay(ref Point a, ref Point b);
     }
 }

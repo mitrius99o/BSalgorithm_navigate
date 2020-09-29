@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    class PointCommunications                             //класс, описывающий связи между точками
+    public class PointCommunications                             //класс, описывающий связи между точками
     {
-        public List<Point> points = new List<Point>();    //список, который хранит все точки на карте
-        public List<int> use_coef_comm = new List<int>(); //список, который хранит все уникальные и используемые ID связей между точками
-        public Stack<Point> buferpoints = new Stack<Point>();
-        public void CreatePoints(int count)               //метод для создания набора точек
+        public static List<Point> points = new List<Point>();    //список, который хранит все точки на карте
+        public static List<int> use_coef_comm = new List<int>(); //список, который хранит все уникальные и используемые ID связей между точками
+        public static Stack<Point> bufferPoints = new Stack<Point>();
+        public static void CreatePoints(int count)               //метод для создания набора точек
         {
             for (int i = 0; i < count; i++)
                 points.Add(new Point($"{i}"));            //в качестве параметра в метод передается колво точек,  
         }                                                 //а с помощью for в список points добавляются эти точки
-        public void Communicate(Point a, Point b)         //метод для создания связи между 2мя точками
+        public static void Communicate(Point a, Point b)         //метод для создания связи между 2мя точками
         {
             Random r = new Random();                      
             int random_coef = r.Next();                   //создание экземпляра класса Random, с помощью Next() иниц. новый ID
@@ -30,7 +30,7 @@ namespace DirectionsAB
 
         
 
-        public bool IsCommunicated(Point a, Point b)      //метод, возвращающий логическое значение для определения того,
+        public static bool IsCommunicated(Point a, Point b)      //метод, возвращающий логическое значение для определения того,
         {                                                 //есть ли прямой путь между двумя точками, подающимися в параметр
             IEnumerable<int> check = new Stack<int>();    
             check = a.coef_comm.Intersect(b.coef_comm);   //в коллекцию записывается количество общих ID связи у проверяемых точек
@@ -39,20 +39,21 @@ namespace DirectionsAB
             else
                 return false;                             //иначе связи нет
         }
-        public Point NextPointByWay(Point point, List<Point> way)   //возвращает след точку на линейном участке пути       
+        public static Point NextPointByWay(Point point, List<Point> way)   //возвращает след точку на линейном участке пути       
         {                                                           
-            return this.points.Find(x => IsCommunicated(point, x)   //с помощью метода-расширения Find ищется точка, имеющая прямой путь с поданной в параметр
+            return points.Find(x => IsCommunicated(point, x)   //с помощью метода-расширения Find ищется точка, имеющая прямой путь с поданной в параметр
                         & x != point                                //эта точка не равна поданной в параметр
                         & !way.Contains(x));                        //этой точки нет в  коллекции-пути
         }
-        public Point NextPointByFork(Point point, List<Point> way)   //возвращает след точку на нелинейном участке пути
+        public static Point NextPointByFork(Point point, List<Point> way)   //возвращает след точку на нелинейном участке пути
         {
-            return this.points.Find(x => IsCommunicated(point, x)    //с помощью метода-расширения Find ищется точка, имеющая прямой путь с поданной в параметр 
+            return points.Find(x => IsCommunicated(point, x)    //с помощью метода-расширения Find ищется точка, имеющая прямой путь с поданной в параметр 
                         & x != point                                 //эта точка не равна поданной в параметр
                         & (x.coef_comm.Count() != 1)                 //проверяемая точка не должна быть тупиком
-                        & !buferpoints.Contains(x)                   //она не содержится в коллекции проверенных путей buferpoints
+                        & !bufferPoints.Contains(x)                   //она не содержится в коллекции проверенных путей buferpoints
                         & !way.Contains(x));                         //этой точки нет в  коллекции-пути
         }
+        /*
         public string GetWayAB(Point a, Point b)                                 //метод, находящий путь между 2мя точками         
         { 
             switch (a.coef_comm.Intersect(b.coef_comm).Count() == 1)             
@@ -72,6 +73,9 @@ namespace DirectionsAB
                                 wayB.Add(b);                                     //то добавляем в этот список
                             b = NextPointByWay(b, wayB);                         //и идем к следующей точке от В и переопределяем ее
                         }
+
+                        
+
                         else if (a.coef_comm.Intersect(b.coef_comm).Count() == 1)//после некоторого количества итераций - проверка на прямую связь
                             break;
                         else                                                     //есди В входит в нелинейный участок
@@ -153,8 +157,8 @@ namespace DirectionsAB
                                         wayB.Remove(c);
                                     }
                             }
-                                */
-            }
-        }
+                                
+            } 
+        } */
     }
 }

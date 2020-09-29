@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DirectionsAB.PointCommunications;
 
 namespace DirectionsAB
 {
     class Program
     {
+        /*
         public static void CreateSapFloor(PointCommunications pc)
         {
             pc.CreatePoints(80);
@@ -98,9 +100,10 @@ namespace DirectionsAB
             pc.Communicate(pc.points[22], pc.points[77]);
             pc.Communicate(pc.points[24], pc.points[78]);
         }
-        public static void CreateTestTree(PointCommunications pc, int count)
+        */
+        public static void CreateTestTree(int count)
         {
-            pc.CreatePoints(count);
+            CreatePoints(count);
             /*
             pc.Communicate(pc.points[0], pc.points[1]);
             pc.Communicate(pc.points[1], pc.points[2]);
@@ -113,21 +116,26 @@ namespace DirectionsAB
             pc.Communicate(pc.points[3], pc.points[4]);
             pc.Communicate(pc.points[2], pc.points[7]);
             */
-            pc.Communicate(pc.points[0], pc.points[1]);
-            pc.Communicate(pc.points[1], pc.points[4]);
-            pc.Communicate(pc.points[4], pc.points[2]);
-            pc.Communicate(pc.points[4], pc.points[3]);
-            pc.Communicate(pc.points[4], pc.points[5]);
+            Communicate(points[0], points[1]);
+            Communicate(points[1], points[4]);
+            Communicate(points[4], points[2]);
+            Communicate(points[4], points[3]);
+            Communicate(points[4], points[5]);
         }
         static void Main(string[] args)
         {
-            PointCommunications PC = new PointCommunications();
-            //CreateSapFloor(PC);
-            CreateTestTree(PC, 6);
 
-            Console.WriteLine(PC.GetWayAB(PC.points[0], PC.points[3]));
+            CreateTestTree(6);
 
-            
+            RutWayBuilder builder = new RutWayBuilder();
+            Director director = new Director(builder);
+
+            director.Construct(points[5], points[3]);
+
+            foreach(Point p in builder.resultWay.resultPoints)
+            {
+                Console.Write(p.name + " ");
+            }
 
             Console.ReadKey();
         }

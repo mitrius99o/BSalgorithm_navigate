@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    class Point                                                            //класс, описывающий точку на карте
+    public class Point                                                            //класс, описывающий точку на карте
     {
         public string name;                                                //имя точки
         public List<int> coef_comm;                                        //список, который хранит ID каждой из связей точки

@@ -8,7 +8,7 @@ namespace DirectionsAB
 {
     class ResultWay
     {
-        List<Point> resultPoints = new List<Point>();
+        public List<Point> resultPoints = new List<Point>();
         public void Add(Point point)
         {
             resultPoints.Add(point);
