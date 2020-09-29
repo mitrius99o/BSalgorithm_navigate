@@ -15,13 +15,13 @@ namespace DirectionsAB
         List<Point> wayB = new List<Point>();                        //линейный путь от точки А к точке B, линейный путь от точки В к А
         List<Point> fork = new List<Point>();                        //список "вилка" из точек, входящие в нелинейный участок пути 
 
-        PointCommunications PC = new PointCommunications();       //после редактирования удалить и сделать этот класс статическим
+        PointCommunications PC = new PointCommunications();          //после редактирования удалить и сделать этот класс статическим
         public override bool BuildWayA(ref Point a)
         {
             if (!wayA.Contains(a) && (a.coef_comm.Count() <= 2))
             {
-                wayA.Add(a);                                     //то уже идем от точки А, добавляя ее в коллекцию вблизи А
-                a = PointCommunications.NextPointByWay(a, wayA);                     //и берем следующую точку по пути от А и переопределяем ее
+                wayA.Add(a);                                          //то уже идем от точки А, добавляя ее в коллекцию вблизи А
+                a = PointCommunications.NextPointByWay(a, wayA);      //и берем следующую точку по пути от А и переопределяем ее
                 return true;
             }
             else
@@ -33,10 +33,10 @@ namespace DirectionsAB
             for (int i = 0; (a.coef_comm.Intersect(b.coef_comm).Count() != 1)          //пока точки не связаны напрямую
                                     & (a.name != b.name); i++)
             {
-                if (!fork.Contains(b)) fork.Add(b);           //добавляем В "вилку"
-                b = PointCommunications.NextPointByFork(b, fork);                //и берем следующую точку по нелинейному участку, не важно по какому направлению
-                if (fork.Count == 1)                           //если в "вилке" 1 элемент
-                    PointCommunications.bufferPoints.Push(b);                     //то запоминаем этот путь, добавляя В в buferpoints
+                if (!fork.Contains(b)) fork.Add(b);                                    //добавляем В "вилку"
+                b = PointCommunications.NextPointByFork(b, fork);                      //и берем следующую точку по нелинейному участку, не важно по какому направлению
+                if (fork.Count == 1)                                                   //если в "вилке" 1 элемент
+                    PointCommunications.bufferPoints.Push(b);                          //то запоминаем этот путь, добавляя В в buferpoints
                 if (b == null)                               //если алгоритм зашел в тупик и не дошел до точки А 
                 {
                     int count = fork.Count;
@@ -54,13 +54,13 @@ namespace DirectionsAB
              {
                  if (!wayB.Contains(b))                               //и если нет В в списке нелинейного пути вблизи В
                      wayB.Add(b);                                     //то добавляем в этот список
-                 b = PointCommunications.NextPointByWay(b, wayB);                         //и идем к следующей точке от В и переопределяем ее
+                 b = PointCommunications.NextPointByWay(b, wayB);     //и идем к следующей точке от В и переопределяем ее
              }
         }
         public override ResultWay GetWay(ref Point a, ref Point b)
         {
-            if (a == b && fork.Count == 0)                   //если А=В и путь не имел разветвлений          
-                wayA.Add(a);                                 //добавляем А в путь вблизи А
+            if (a == b && fork.Count == 0)                      //если А=В и путь не имел разветвлений          
+                wayA.Add(a);                                    //добавляем А в путь вблизи А
             else if (fork.Count == 0)                           //иначе добавляем А, затем В
             {
                 wayA.Add(a);
