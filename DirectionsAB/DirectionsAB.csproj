@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Director.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="PointCommunications.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultWay.cs" />
+    <Compile Include="RutWayBuilder.cs" />
+    <Compile Include="WayBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

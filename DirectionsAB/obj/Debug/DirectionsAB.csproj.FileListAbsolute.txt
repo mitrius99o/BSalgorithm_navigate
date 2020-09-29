@@ -11,3 +11,10 @@ C:\Users\Dmitry\Documents\source\repos\DirectionsAB\DirectionsAB\bin\Debug\Direc
 C:\Users\Dmitry\Documents\source\repos\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csprojAssemblyReference.cache
 C:\Users\Dmitry\Documents\source\repos\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.exe
 C:\Users\Dmitry\Documents\source\repos\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.pdb
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.exe.config
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.exe
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.pdb
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csprojAssemblyReference.cache
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.CoreCompileInputs.cache
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.exe
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.pdb

@@ -101,7 +101,7 @@ namespace DirectionsAB
         public static void CreateTestTree(PointCommunications pc, int count)
         {
             pc.CreatePoints(count);
-            
+            /*
             pc.Communicate(pc.points[0], pc.points[1]);
             pc.Communicate(pc.points[1], pc.points[2]);
             pc.Communicate(pc.points[0], pc.points[9]);
@@ -112,14 +112,20 @@ namespace DirectionsAB
             pc.Communicate(pc.points[2], pc.points[3]);
             pc.Communicate(pc.points[3], pc.points[4]);
             pc.Communicate(pc.points[2], pc.points[7]);
+            */
+            pc.Communicate(pc.points[0], pc.points[1]);
+            pc.Communicate(pc.points[1], pc.points[4]);
+            pc.Communicate(pc.points[4], pc.points[2]);
+            pc.Communicate(pc.points[4], pc.points[3]);
+            pc.Communicate(pc.points[4], pc.points[5]);
         }
         static void Main(string[] args)
         {
             PointCommunications PC = new PointCommunications();
-            CreateSapFloor(PC);
-            //CreateTestTree(PC, 10);
+            //CreateSapFloor(PC);
+            CreateTestTree(PC, 6);
 
-            Console.WriteLine(PC.GetWayAB(PC.points[35], PC.points[75]));
+            Console.WriteLine(PC.GetWayAB(PC.points[0], PC.points[3]));
 
             
 
