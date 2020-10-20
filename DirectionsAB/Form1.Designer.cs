@@ -40,15 +40,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.point_name = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -67,13 +76,14 @@
             this.map.TabIndex = 0;
             this.map.TabStop = false;
             this.map.MouseClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseClick);
+            this.map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.tabControl1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(821, 10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 500);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 496);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // tabControl1
@@ -167,6 +177,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.point_name);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -176,8 +193,79 @@
             this.tabPage2.Text = "Об аудитории";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(86, 296);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(37, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Точка";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(86, 259);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(0, 13);
+            this.label16.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(86, 225);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(0, 13);
+            this.label15.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 296);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Тип:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(24, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Y:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 225);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "X:";
+            // 
+            // point_name
+            // 
+            this.point_name.AutoSize = true;
+            this.point_name.Location = new System.Drawing.Point(86, 183);
+            this.point_name.Name = "point_name";
+            this.point_name.Size = new System.Drawing.Size(0, 13);
+            this.point_name.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 101);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(197, 26);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Кликните 2 раза по аудитории, чтобы\r\nознакомиться с информацией о ней.";
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.label18);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.listBox1);
             this.tabPage3.Controls.Add(this.label9);
@@ -192,40 +280,22 @@
             this.tabPage3.Text = "Разработка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // label10
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 0;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(199, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Аудитории, подключенные к системе:";
             // 
-            // label6
+            // listBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Выделите прямоугольную";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 41);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "область двумя кликами,";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "чтобы добавить аудиторию";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(4, 132);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(213, 134);
+            this.listBox1.TabIndex = 2;
             // 
             // label9
             // 
@@ -236,31 +306,59 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "в систему приложения.";
             // 
-            // listBox1
+            // label8
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(4, 132);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(213, 212);
-            this.listBox1.TabIndex = 2;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(35, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "чтобы добавить аудиторию";
             // 
-            // label10
+            // label7
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(199, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Аудитории, подключенные к системе:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "область двумя кликами,";
             // 
-            // label11
+            // label6
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 101);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(197, 26);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Кликните 2 раза по аудитории, чтобы\r\nознакомиться с информацией о ней.";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Выделите прямоугольную";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 0;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(30, 289);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(172, 78);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Чтобы провести путь между \r\nдвумя областями, сначала \r\nнажмите правой кнопкой мыш" +
+    "и \r\nна первую, затем на вторую, \r\nи затем нажмите на кнопку \r\n\"Связать\". ";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(19, 393);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 40);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Связать";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -307,5 +405,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label point_name;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -9,16 +9,31 @@ namespace DirectionsAB
 {
     public class Point                                                   //класс, описывающий точку на карте
     {
+        public static float coef = 2.36f;
         public string name;                                                //имя точки
-        public double x, y;                                                //координаты центра области аудитории
+        private double x, y;                                               //координаты центра области аудитории/локации(декартовы)
+        public double X                                                    
+        {
+            get { return x * coef; }
+            set { x = value; }
+        }
+        public double Y
+        {
+            get { return y * coef; }
+            set { y = value; }
+        }
+        public System.Drawing.Point p1;                                    //верхняя левая граница области
+        public System.Drawing.Point p2;                                    //правая нижняя граница области
+
         public List<int> coef_comm;                                        //список, который хранит ID каждой из связей точки
         public Point(string n) { name = n; coef_comm = new List<int>(); }  //конструктор для создания точки, в параметр подается строка,  
                                                                            //которая записывается в поле name
         public Point(string n, double x, double y)
         {
             name = n;
-            this.x = x;
-            this.y = y;
+            X = x;
+            Y = y;
+            coef_comm = new List<int>();
         }
     }
 }

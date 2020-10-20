@@ -21,7 +21,7 @@ namespace DirectionsAB
             Communicate(points[4], points[5]);
         }
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

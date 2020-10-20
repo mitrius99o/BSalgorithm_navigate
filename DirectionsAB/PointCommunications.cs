@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DirectionsAB
 {
@@ -17,9 +18,23 @@ namespace DirectionsAB
                 points.Add(new Point($"{i}"));            //в качестве параметра в метод передается колво точек,  
         }                                                 //а с помощью for в список points добавляются эти точки
 
-        public static void CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
+        public static bool CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
         {
-            //логика нахождения центра координат прямоугольника
+            double xc = (finish.X - start.X)/2;
+            double yc = (finish.Y - start.Y)/2;
+            Point p = new Point($"{points.Count}", xc, yc);
+            p.p1 = start;
+            p.p2 = finish;
+            if (xc > 0 && yc > 0)
+            {
+                points.Add(p);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Неправильно выбрана область!");
+                return false;
+            }
         }
         public static void Communicate(Point a, Point b)         //метод для создания связи между 2мя точками
         {
