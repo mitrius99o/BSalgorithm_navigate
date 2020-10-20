@@ -16,6 +16,11 @@ namespace DirectionsAB
             for (int i = 0; i < count; i++)
                 points.Add(new Point($"{i}"));            //в качестве параметра в метод передается колво точек,  
         }                                                 //а с помощью for в список points добавляются эти точки
+
+        public static void CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
+        {
+            //логика нахождения центра координат прямоугольника
+        }
         public static void Communicate(Point a, Point b)         //метод для создания связи между 2мя точками
         {
             Random r = new Random();                      
