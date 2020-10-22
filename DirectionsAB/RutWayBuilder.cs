@@ -78,6 +78,10 @@ namespace DirectionsAB
             {
                 resultWay.Add(wayB[i]);
             }
+            foreach (Point p in this.resultWay.resultPoints)
+            {
+                Console.Write(p.name + " ");
+            }
             return resultWay;
         }
     }

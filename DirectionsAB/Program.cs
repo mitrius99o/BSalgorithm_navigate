@@ -15,25 +15,25 @@ namespace DirectionsAB
             CreatePoints(count);
 
             Communicate(points[0], points[1]);
-            Communicate(points[1], points[4]);
-            Communicate(points[4], points[2]);
-            Communicate(points[4], points[3]);
-            Communicate(points[4], points[5]);
+            Communicate(points[1], points[2]);
+            //Communicate(points[4], points[2]);
+            //Communicate(points[4], points[3]);
+            //Communicate(points[4], points[5]);
         }
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             
             /*
-            CreateTestTree(6);
+            CreateTestTree(3);
 
             RutWayBuilder builder = new RutWayBuilder();
             Director director = new Director(builder);
 
-            director.Construct(points[5], points[3]);
+            director.Construct(points[0], points[2]);
 
             foreach(Point p in builder.resultWay.resultPoints)
             {

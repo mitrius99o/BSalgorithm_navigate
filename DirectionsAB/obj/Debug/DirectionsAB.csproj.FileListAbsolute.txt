@@ -21,3 +21,4 @@ C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Form1.resources
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Properties.Resources.resources
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.GenerateResource.cache
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Form2.resources

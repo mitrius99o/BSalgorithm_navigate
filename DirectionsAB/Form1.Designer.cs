@@ -49,6 +49,7 @@
             this.point_name = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,8 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -265,7 +264,6 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.label18);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.listBox1);
             this.tabPage3.Controls.Add(this.label9);
@@ -280,19 +278,29 @@
             this.tabPage3.Text = "Разработка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(19, 337);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 40);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Связать две области";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 116);
+            this.label10.Location = new System.Drawing.Point(3, 95);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(199, 13);
+            this.label10.Size = new System.Drawing.Size(189, 13);
             this.label10.TabIndex = 3;
-            this.label10.Text = "Аудитории, подключенные к системе:";
+            this.label10.Text = "Области, подключенные к системе:";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(4, 132);
+            this.listBox1.Location = new System.Drawing.Point(4, 111);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(213, 134);
             this.listBox1.TabIndex = 2;
@@ -340,25 +348,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 0;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(30, 289);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(172, 78);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Чтобы провести путь между \r\nдвумя областями, сначала \r\nнажмите правой кнопкой мыш" +
-    "и \r\nна первую, затем на вторую, \r\nи затем нажмите на кнопку \r\n\"Связать\". ";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(19, 393);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 40);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Связать";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -413,6 +402,5 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label18;
     }
 }

@@ -20,8 +20,8 @@ namespace DirectionsAB
 
         public static bool CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
         {
-            double xc = (finish.X - start.X)/2;
-            double yc = (finish.Y - start.Y)/2;
+            float xc = start.X + (finish.X - start.X)/2;
+            float yc = start.Y + (finish.Y - start.Y)/2;
             Point p = new Point($"{points.Count}", xc, yc);
             p.p1 = start;
             p.p2 = finish;
