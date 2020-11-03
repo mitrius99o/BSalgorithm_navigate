@@ -22,11 +22,11 @@ namespace DirectionsAB
         {
             float xc = start.X + (finish.X - start.X)/2;
             float yc = start.Y + (finish.Y - start.Y)/2;
-            Point p = new Point($"{points.Count}", xc, yc);
-            p.p1 = start;
-            p.p2 = finish;
             if (xc > 0 && yc > 0)
             {
+                Point p = new Point($"{points.Count}", xc, yc);
+                p.p1 = start;
+                p.p2 = finish;
                 points.Add(p);
                 return true;
             }
