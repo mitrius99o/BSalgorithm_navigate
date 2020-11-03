@@ -82,7 +82,7 @@ namespace DirectionsAB
         {
             if (CreatePoint(start, finish))
             {
-                gpu.DrawRectangle(new Pen(Color.Blue, 6),
+                gpu.DrawRectangle(new Pen(Color.Blue, 3),
                                   start.X * coef,
                                   start.Y * coef,
                                   (finish.X - start.X) * coef,
