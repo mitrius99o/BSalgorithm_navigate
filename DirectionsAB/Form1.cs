@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace DirectionsAB
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -87,7 +90,7 @@ namespace DirectionsAB
                                   start.Y * coef,
                                   (finish.X - start.X) * coef,
                                   (finish.Y - start.Y) * coef);
-                listBox1.Items.Add($"Область {points.IndexOf(points[points.Count - 1])}, " +
+                listBox1.Items.Add($"Область {points.Count - 1}, " +
                     $"координаты ({points[points.Count - 1].X} , {points[points.Count - 1].Y})");
             }
         }
@@ -128,7 +131,7 @@ namespace DirectionsAB
                     if (e.X >= points[i].p1.X && e.X <= points[i].p2.X &&
                         e.Y >= points[i].p1.Y && e.Y <= points[i].p2.Y)
                     {
-                        point_name.Text = Convert.ToString(points[i].name);
+                        point_name.Text = Convert.ToString(points[i].Name);
                         label15.Text = Convert.ToString(points[i].X);
                         label16.Text = Convert.ToString(points[i].Y);
                     }
@@ -143,7 +146,17 @@ namespace DirectionsAB
 
         private void button3_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            for(int i=0;i<points.Count;i++)
+                listBox1.Items.Add($"Область {i}, " +
+                   $"координаты ({points[i].X} , {points[i].Y})");
+        }
 
+        private void button4_Click(object sender, EventArgs e)//обновляет карту полностью
+        {
+            map.Image = Properties.Resources.firstfloor_land;
+            gpu = Graphics.FromImage(map.Image);
+            map.Invalidate();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -23,7 +23,7 @@ namespace DirectionsAB
                     break;
                 case false:
                     while ((a.coef_comm.Intersect(b.coef_comm).Count() != 1)
-                        & (a.name != b.name))
+                        & (a.Name != b.Name))
                     {
                         builder.BuildWayB(ref b);
 

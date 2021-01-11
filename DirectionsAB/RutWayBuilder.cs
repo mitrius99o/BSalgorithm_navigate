@@ -31,7 +31,7 @@ namespace DirectionsAB
         public override void BuildWayFork(ref Point a, ref Point b)
         {
             for (int i = 0; (a.coef_comm.Intersect(b.coef_comm).Count() != 1)          //пока точки не связаны напрямую
-                                    & (a.name != b.name); i++)
+                                    & (a.Name != b.Name); i++)
             {
                 if (!fork.Contains(b)) fork.Add(b);                                    //добавляем В "вилку"
                 b = PointCommunications.NextPointByFork(b, fork);                      //и берем следующую точку по нелинейному участку, не важно по какому направлению
@@ -80,7 +80,7 @@ namespace DirectionsAB
             }
             foreach (Point p in this.resultWay.resultPoints)
             {
-                Console.Write(p.name + " ");
+                Console.Write(p.Name + " ");
             }
             return resultWay;
         }

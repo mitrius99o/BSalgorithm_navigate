@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Data.Linq.Mapping;
 
 namespace DirectionsAB
 {
-    public class Point                                                   //класс, описывающий точку на карте
+    public class Point:Room                                                   //класс, описывающий точку на карте
     {
         public static float coef = 2.36f;
-        public string name;                                                //имя точки
+        public int Id { get; set; }
+        public string Name { get; set; }                                                //имя точки
         private float x, y;                                                 //координаты центра области аудитории/локации(декартовы)
 
         public float X
@@ -28,11 +30,12 @@ namespace DirectionsAB
         public System.Drawing.Point p2;                                    //правая нижняя граница области
 
         public List<int> coef_comm;                                        //список, который хранит ID каждой из связей точки
-        public Point(string n) { name = n; coef_comm = new List<int>(); }  //конструктор для создания точки, в параметр подается строка,  
+        public Point() { }
+        public Point(string n) { Name = n; coef_comm = new List<int>(); }  //конструктор для создания точки, в параметр подается строка,  
                                                                            //которая записывается в поле name
         public Point(string n, float x, float y)
         {
-            name = n;
+            Name = n;
             X = x;
             Y = y;
             coef_comm = new List<int>();

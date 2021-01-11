@@ -7,20 +7,16 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    [Table(Name ="Rooms")]
-    class Room
+    [Table(Name = "Rooms")]
+    public class Room
     {
-        [Column(IsPrimaryKey = true, Name = "Id")]
+        [Column(IsPrimaryKey = true, IsDbGenerated = true, Name = "Id")]
         public int Id { get; set; }
         [Column(Name = "Name")]
         public string Name { get; set; }
-        [Column(Name = "Point1X")]
-        public float Point1x { get; set; }
-        [Column(Name = "Point2X")]
-        public float Point2x { get; set; }
-        [Column(Name = "Point1Y")]
+        [Column(Name = "X")]
+        public float X { get; set; }
+        [Column(Name = "Y")]
         public float Point1y { get; set; }
-        [Column(Name = "Point2Y")]
-        public float Point2y { get; set; }
-    }
+    } 
 }
