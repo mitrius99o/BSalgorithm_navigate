@@ -71,15 +71,20 @@ namespace DirectionsAB
                     indP2 = i;
                 }
             }
-            director.Construct(points[indP1], points[indP2]);
-            for (int i = 0; i < builder.resultWay.resultPoints.Count - 1; i++)
+            if (points.Count != 0)
             {
-                gpu.DrawLine(new Pen(color, width),
-                               builder.resultWay.resultPoints[i].X,
-                               builder.resultWay.resultPoints[i].Y,
-                               builder.resultWay.resultPoints[i + 1].X,
-                               builder.resultWay.resultPoints[i + 1].Y);
+                director.Construct(points[indP1], points[indP2]);
+                for (int i = 0; i < builder.resultWay.resultPoints.Count - 1; i++)
+                {
+                    gpu.DrawLine(new Pen(color, width),
+                                   builder.resultWay.resultPoints[i].X,
+                                   builder.resultWay.resultPoints[i].Y,
+                                   builder.resultWay.resultPoints[i + 1].X,
+                                   builder.resultWay.resultPoints[i + 1].Y);
+                }
             }
+            else
+                MessageBox.Show("Невозможно построить маршрут!\nНе существует активных областей.");
         }
         public void DrawAddPoint()
         {
@@ -93,6 +98,8 @@ namespace DirectionsAB
                 listBox1.Items.Add($"Область {points.Count - 1}, " +
                     $"координаты ({points[points.Count - 1].X} , {points[points.Count - 1].Y})");
             }
+            else
+                MessageBox.Show("Ошибка в создании активной области-точки");
         }
 
         private void map_MouseClick(object sender, MouseEventArgs e)
