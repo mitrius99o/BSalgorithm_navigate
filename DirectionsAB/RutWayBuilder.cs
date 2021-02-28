@@ -11,9 +11,9 @@ namespace DirectionsAB
         public ResultWay resultWay = new ResultWay();
 
         Stack<Point> bufferPoints;
-        List<Point> wayA = new List<Point>();                        //если точки не связаны напрямую, то создаем 3 списка
-        List<Point> wayB = new List<Point>();                        //линейный путь от точки А к точке B, линейный путь от точки В к А
-        List<Point> fork = new List<Point>();                        //список "вилка" из точек, входящие в нелинейный участок пути 
+        public List<Point> wayA = new List<Point>();                        //если точки не связаны напрямую, то создаем 3 списка
+        public List<Point> wayB = new List<Point>();                        //линейный путь от точки А к точке B, линейный путь от точки В к А
+        public List<Point> fork = new List<Point>();                        //список "вилка" из точек, входящие в нелинейный участок пути 
 
         PointCommunications PC = new PointCommunications();          //после редактирования удалить и сделать этот класс статическим
         public override bool BuildWayA(ref Point a)

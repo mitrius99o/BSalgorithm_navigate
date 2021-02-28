@@ -82,6 +82,10 @@ namespace DirectionsAB
                                    builder.resultWay.resultPoints[i + 1].X,
                                    builder.resultWay.resultPoints[i + 1].Y);
                 }
+                builder.wayA.Clear();
+                builder.wayB.Clear();
+                builder.fork.Clear();
+                builder.resultWay.resultPoints.Clear();
             }
             else
                 MessageBox.Show("Невозможно построить маршрут!\nНе существует активных областей.");
@@ -104,7 +108,7 @@ namespace DirectionsAB
 
         private void map_MouseClick(object sender, MouseEventArgs e)
         {
-            if (start.IsEmpty)
+            if (start.IsEmpty||(start.X==0&&start.Y==0))
             {   
                 start.X = e.X;
                 start.Y = e.Y;
