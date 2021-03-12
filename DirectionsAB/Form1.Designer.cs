@@ -1,4 +1,6 @@
-﻿namespace DirectionsAB
+﻿using System.Windows.Forms;
+
+namespace DirectionsAB
 {
     partial class Form1
     {
@@ -28,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.map = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -59,32 +60,21 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
+            this.map = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.SuspendLayout();
-            // 
-            // map
-            // 
-            this.map.Image = global::DirectionsAB.Properties.Resources.firstfloor_land;
-            this.map.Location = new System.Drawing.Point(4, 7);
-            this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(814, 461);
-            this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.map.TabIndex = 0;
-            this.map.TabStop = false;
-            this.map.MouseClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseClick);
-            this.map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.tabControl1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(821, 10);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(992, 40);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 496);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(341, 609);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // tabControl1
@@ -95,7 +85,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(228, 488);
+            this.tabControl1.Size = new System.Drawing.Size(333, 592);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -112,7 +102,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(220, 462);
+            this.tabPage1.Size = new System.Drawing.Size(325, 566);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Навигатор";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -202,7 +192,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(220, 462);
+            this.tabPage2.Size = new System.Drawing.Size(325, 566);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Об аудитории";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -375,16 +365,30 @@
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 0;
             // 
+            // map
+            // 
+            this.map.Image = global::DirectionsAB.Properties.Resources.firstfloor_land;
+            this.map.Location = new System.Drawing.Point(4, 4);
+            this.map.Name = "map";
+            this.map.Size = new System.Drawing.Size(814, 461);
+            this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.map.TabIndex = 0;
+            this.map.TabStop = false;
+            this.map.MouseClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseClick);
+            this.map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 518);
+            this.ClientSize = new System.Drawing.Size(1366, 728);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.map);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "BSMaps-v0.20";
-            ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -393,13 +397,12 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox map;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -430,5 +433,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private PictureBox map;
     }
 }
