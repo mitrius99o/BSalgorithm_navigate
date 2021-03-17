@@ -22,3 +22,14 @@ C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Properties.Resources.resources
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.GenerateResource.cache
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Form2.resources
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\DirectionsAB.exe.config
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\DirectionsAB.exe
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\DirectionsAB.pdb
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csprojAssemblyReference.cache
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.Form1.resources
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.Form2.resources
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.Properties.Resources.resources
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csproj.GenerateResource.cache
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csproj.CoreCompileInputs.cache
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.exe
+C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.pdb
