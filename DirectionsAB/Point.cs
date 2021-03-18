@@ -8,7 +8,7 @@ using System.Data.Linq.Mapping;
 
 namespace DirectionsAB
 {
-    public class Point : Room                                                   //класс, описывающий точку на карте
+    public class Point                                                   //класс, описывающий точку на карте
     {
         public static float coef = Form1.coef;
         public int Id { get; set; }
