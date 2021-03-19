@@ -279,7 +279,7 @@ namespace DirectionsAB
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(220, 462);
+            this.tabPage3.Size = new System.Drawing.Size(325, 566);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Разработка";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -368,9 +368,9 @@ namespace DirectionsAB
             // map
             // 
             this.map.Image = global::DirectionsAB.Properties.Resources.firstfloor_land;
-            this.map.Location = new System.Drawing.Point(4, 4);
+            this.map.Location = new System.Drawing.Point(4, 43);
             this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(814, 461);
+            this.map.Size = new System.Drawing.Size(982, 556);
             this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.map.TabIndex = 0;
             this.map.TabStop = false;
@@ -389,6 +389,7 @@ namespace DirectionsAB
             this.Name = "Form1";
             this.Text = "BSMaps-v0.20";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

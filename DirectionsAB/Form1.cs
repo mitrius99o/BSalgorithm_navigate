@@ -17,12 +17,20 @@ namespace DirectionsAB
     {
         System.Drawing.Point start, finish;
         Graphics gpu;
-        const float coef = 2.36f;
+        public static float coef;
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
 
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            coef = 1920 / map.Width;
+            while ((double)coef<(double)1920 / map.Width)
+            {
+                coef += 0.001f;
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -112,6 +120,7 @@ namespace DirectionsAB
             {   
                 start.X = e.X;
                 start.Y = e.Y;
+                label18.Text = e.X.ToString();
                 finish.X = 0;
                 finish.Y = 0;
             }
@@ -169,6 +178,8 @@ namespace DirectionsAB
             gpu = Graphics.FromImage(map.Image);
             map.Invalidate();
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {

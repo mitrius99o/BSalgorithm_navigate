@@ -8,21 +8,21 @@ using System.Data.Linq.Mapping;
 
 namespace DirectionsAB
 {
-    public class Point : Room                                                   //класс, описывающий точку на карте
+    public class Point                                                   //класс, описывающий точку на карте
     {
-        public static float coef = 2.36f;
+        public static float coef = Form1.coef;
         public int Id { get; set; }
         public string Name { get; set; }                                                //имя точки
         private float x, y;                                                 //координаты центра области аудитории/локации(декартовы)
 
         public float X
         {
-            get { return x * coef; }
+            get { return x*coef; }
             set { x = value; }
         }
         public float Y
         {
-            get { return y * coef; }
+            get { return y*coef; }
             set { y = value; }
         }
         
