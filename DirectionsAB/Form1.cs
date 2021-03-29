@@ -24,9 +24,8 @@ namespace DirectionsAB
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             coef = 1920 / map.Width;
-            while ((double)coef<(double)1920 / map.Width)
+            while (coef<(double)1920 / map.Width)
             {
                 coef += 0.001f;
             }
@@ -120,7 +119,6 @@ namespace DirectionsAB
             {   
                 start.X = e.X;
                 start.Y = e.Y;
-                label18.Text = e.X.ToString();
                 finish.X = 0;
                 finish.Y = 0;
             }

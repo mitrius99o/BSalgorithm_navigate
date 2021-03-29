@@ -370,7 +370,7 @@ namespace DirectionsAB
             this.map.Image = global::DirectionsAB.Properties.Resources.firstfloor_land;
             this.map.Location = new System.Drawing.Point(4, 43);
             this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(982, 556);
+            this.map.Size = new System.Drawing.Size(989, 558);
             this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.map.TabIndex = 0;
             this.map.TabStop = false;

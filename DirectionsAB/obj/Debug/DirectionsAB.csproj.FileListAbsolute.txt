@@ -33,3 +33,8 @@ C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\D
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csproj.CoreCompileInputs.cache
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.exe
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.pdb
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.dll
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.xml
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.CopyComplete

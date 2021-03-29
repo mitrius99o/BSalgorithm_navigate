@@ -101,6 +101,12 @@
     <None Include="packages.config" />
     <None Include="Resources\firstfloor_land.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Eighthfloor_land.png" />
+    <Content Include="Resources\Fivethfloor_land.png" />
+    <Content Include="Resources\seventhfloor_land.png" />
+    <Content Include="Resources\Sixthfloor_land.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
