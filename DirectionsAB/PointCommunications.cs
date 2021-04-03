@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DirectionsAB.Models;
+using System.Data.Entity;
 
 namespace DirectionsAB
 {
@@ -24,15 +26,18 @@ namespace DirectionsAB
 
         public static bool CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
         {
-            float xc = start.X + (finish.X - start.X)/2;
-            float yc = start.Y + (finish.Y - start.Y)/2;
-            if (xc > 0 && yc > 0)
+            //float xc = start.X + (finish.X - start.X)/2;
+            //float yc = start.Y + (finish.Y - start.Y)/2;
+            if (start.X + (finish.X - start.X) / 2 > 0 && start.Y + (finish.Y - start.Y) / 2 > 0)
             {
-                Point p = new Point($"{points.Count}", xc, yc);
-                p.p1 = start;
-                p.p2 = finish;
+                Point p = new Point($"{points.Count}", start.X, start.Y, finish.X, finish.Y);
 
                 points.Add(p);
+
+                MapContext context = new MapContext();
+                context.Regions.Add(p);
+                context.SaveChanges();
+
                 return true;
             }
             else
