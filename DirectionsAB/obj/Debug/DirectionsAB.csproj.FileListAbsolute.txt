@@ -38,3 +38,5 @@ C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramewo
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.xml
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.CopyComplete
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\Database1.mdf
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\Database1_log.ldf
