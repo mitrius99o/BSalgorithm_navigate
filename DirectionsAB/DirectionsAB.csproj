@@ -129,8 +129,11 @@
     </Content>
     <Content Include="Resources\Eighthfloor_land.png" />
     <Content Include="Resources\Fivethfloor_land.png" />
+    <Content Include="Resources\Fourthfloor_land.png" />
+    <Content Include="Resources\Secondfloor_land.png" />
     <Content Include="Resources\seventhfloor_land.png" />
     <Content Include="Resources\Sixthfloor_land.png" />
+    <Content Include="Resources\Thirdfloor_land.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
