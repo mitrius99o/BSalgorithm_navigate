@@ -17,5 +17,6 @@ namespace DirectionsAB
 
         //collections DBSET with regions with its communications
         public DbSet<Region> Regions { get; set; }
+        public DbSet<Communication> Communications { get; set; }
     }
 }
