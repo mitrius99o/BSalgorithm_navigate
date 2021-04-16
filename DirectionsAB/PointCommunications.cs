@@ -35,7 +35,7 @@ namespace DirectionsAB
                 points.Add(p);
 
                 MapContext context = new MapContext();
-                context.Regions.Add(p);
+                context.Regions.Add(p);//Я изменил адрес базы данных
                 context.SaveChanges();
 
                 return true;
