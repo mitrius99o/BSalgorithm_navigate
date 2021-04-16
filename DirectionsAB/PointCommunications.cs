@@ -14,6 +14,7 @@ namespace DirectionsAB
     {
         public static string connString= @"Data Source=desktop-il0k9bd\sqlexpress;Initial Catalog=rooms;User ID=sa;Password=sa";
         public static DataContext db=new DataContext(connString);
+        static MapContext context=new MapContext();
 
         public static List<Point> points = new List<Point>();    //список, который хранит все точки на карте
         public static List<int> use_coef_comm = new List<int>(); //список, который хранит все уникальные и используемые ID связей между точками
@@ -34,7 +35,6 @@ namespace DirectionsAB
 
                 points.Add(p);
 
-                MapContext context = new MapContext();
                 context.Regions.Add(p);//Я изменил адрес базы данных
                 context.SaveChanges();
 
@@ -54,7 +54,21 @@ namespace DirectionsAB
                 random_coef = r.Next();
             a.coef_comm.Add(random_coef);                 //добавляем уникальный ID в коллекции
             b.coef_comm.Add(random_coef);                 //обеих точек, тем самым достигая их "связки"
+
+            Communication c1 = new Communication();
+            Communication c2 = new Communication();
+
+            c1.CommID = c2.CommID = random_coef;
+            c1.RegionID = a.RegionId;
+            c2.RegionID = b.RegionId;
+
+            context.Communications.Add(c1);
+            context.Communications.Add(c2);
+
+            context.SaveChanges();
+
             use_coef_comm.Add(random_coef);               //добавляем уникальный ID в коллекцию используемых
+
             Console.WriteLine($"Cвязь между точками {a.Name} и {b.Name} создана. ID связи: {random_coef}");
         }
 
