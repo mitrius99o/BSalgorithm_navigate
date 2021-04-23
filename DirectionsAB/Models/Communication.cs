@@ -9,9 +9,10 @@ namespace DirectionsAB.Models
 {
     class Communication
     {
-
-        public int RegionID { get; set; }
         [Key]
+        public int Id { get; set; }
+        public int RegionID { get; set; }
+        
         public int CommID { get; set; }
     }
 }
