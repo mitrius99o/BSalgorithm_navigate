@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DirectionsAB.Models;
 using static DirectionsAB.PointCommunications;
 
 namespace DirectionsAB
@@ -21,7 +22,8 @@ namespace DirectionsAB
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
-
+        //DataContext context = new DataContext(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\Database1.mdf;Integrated Security=True");
+        MapContext context = new MapContext();
         private void Form1_Load(object sender, EventArgs e)
         {
             coef = 1920 / map.Width;
@@ -29,6 +31,22 @@ namespace DirectionsAB
             {
                 coef += 0.001f;
             }
+            //IEnumerable<DirectionsAB.Models.Region> regions = context.GetTable<DirectionsAB.Models.Region>();
+            
+            //перебрать эту коллекцию и налету преобразовать в поинт
+            foreach(DirectionsAB.Models.Region r in context.Regions)
+            {
+                points.Add((Point)r);
+                gpu.DrawRectangle(new Pen(Color.Blue, 3),
+                                  points.Last().X1,
+                                  points.Last().Y1,
+                                  (points.Last().X2 - points.Last().X1),
+                                  (points.Last().Y2 - points.Last().Y1));
+                //IEnumerable<DirectionsAB.Models.Communication> communications = context.Communications.Where(c => c.RegionID == r.RegionId);
+                //foreach (DirectionsAB.Models.Communication communication in communications)
+                //    points.Last().coef_comm.Add(communication.CommID);
+            }
+
         }
         public Form1()
         {
