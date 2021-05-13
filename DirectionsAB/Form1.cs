@@ -22,7 +22,6 @@ namespace DirectionsAB
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
-        //DataContext context = new DataContext(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\Database1.mdf;Integrated Security=True");
         MapContext context = new MapContext();
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,22 +30,26 @@ namespace DirectionsAB
             {
                 coef += 0.001f;
             }
-            //IEnumerable<DirectionsAB.Models.Region> regions = context.GetTable<DirectionsAB.Models.Region>();
-            
-            //перебрать эту коллекцию и налету преобразовать в поинт
             foreach(DirectionsAB.Models.Region r in context.Regions)
             {
                 points.Add((Point)r);
                 gpu.DrawRectangle(new Pen(Color.Blue, 3),
-                                  points.Last().X1,
-                                  points.Last().Y1,
-                                  (points.Last().X2 - points.Last().X1),
-                                  (points.Last().Y2 - points.Last().Y1));
-                //IEnumerable<DirectionsAB.Models.Communication> communications = context.Communications.Where(c => c.RegionID == r.RegionId);
-                //foreach (DirectionsAB.Models.Communication communication in communications)
-                //    points.Last().coef_comm.Add(communication.CommID);
+                                  points.Last().X1*coef,
+                                  points.Last().Y1*coef,
+                                  (points.Last().X2 - points.Last().X1)*coef,
+                                  (points.Last().Y2 - points.Last().Y1)*coef);
             }
-
+            foreach (Point p in points)
+            {
+                IEnumerable<DirectionsAB.Models.Communication> communications = context.Communications.Where(c => c.RegionID == p.RegionId);
+                foreach (DirectionsAB.Models.Communication communication in communications)
+                {
+                    if(p.coef_comm==null)
+                        p.coef_comm = new List<int>();
+                    p.coef_comm.Add(communication.CommID);
+                }
+                
+            }
         }
         public Form1()
         {
@@ -85,13 +88,13 @@ namespace DirectionsAB
             int indP1=0, indP2=0;
             for (int i = 0; i < points.Count; i++)
             {
-                if (start.X >= points[i].p1.X && start.X <= points[i].p2.X &&
-                    start.Y >= points[i].p1.Y && start.Y <= points[i].p2.Y)
+                if (start.X >= points[i].X1 && start.X <= points[i].X2 &&
+                    start.Y >= points[i].Y1 && start.Y <= points[i].Y2)
                 {
                     indP1 = i;
                 }
-                else if (finish.X >= points[i].p1.X && finish.X <= points[i].p2.X &&
-                    finish.Y >= points[i].p1.Y && finish.Y <= points[i].p2.Y)
+                else if (finish.X >= points[i].X1 && finish.X <= points[i].X2 &&
+                    finish.Y >= points[i].Y1 && finish.Y <= points[i].Y2)
                 {
                     indP2 = i;
                 }
@@ -164,8 +167,8 @@ namespace DirectionsAB
             if (tabControl1.SelectedTab == tabPage2)
                 for (int i = 0; i < points.Count; i++)
                 {
-                    if (e.X >= points[i].p1.X && e.X <= points[i].p2.X &&
-                        e.Y >= points[i].p1.Y && e.Y <= points[i].p2.Y)
+                    if (e.X >= points[i].X1 && e.X <= points[i].X2 &&
+                        e.Y >= points[i].Y1 && e.Y <= points[i].Y2)
                     {
                         point_name.Text = Convert.ToString(points[i].Name);
                         label15.Text = Convert.ToString(points[i].X);
@@ -193,6 +196,15 @@ namespace DirectionsAB
             map.Image = Properties.Resources.firstfloor_land;
             gpu = Graphics.FromImage(map.Image);
             map.Invalidate();
+            foreach (Point p in points)
+            {
+                gpu.DrawRectangle(new Pen(Color.Blue, 3),
+                                  p.X1 * coef,
+                                  p.Y1 * coef,
+                                  (p.X2 - p.X1) * coef,
+                                  (p.Y2 - p.Y1) * coef);
+            }
+            
         }
 
         

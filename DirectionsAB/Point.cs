@@ -16,12 +16,12 @@ namespace DirectionsAB
 
         public float X
         {
-            get { return x*coef; }
+            get { return x; }
             set { x = value; }
         }
         public float Y
         {
-            get { return y*coef; }
+            get { return y; }
             set { y = value; }
         }
         
