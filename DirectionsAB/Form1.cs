@@ -23,6 +23,7 @@ namespace DirectionsAB
         Director director;
         Form2 commForm;
         MapContext context = new MapContext();
+        MapContext context2 = new MapContext();
         private void Form1_Load(object sender, EventArgs e)
         {
             coef = 1920 / map.Width;
@@ -48,8 +49,8 @@ namespace DirectionsAB
                         p.coef_comm = new List<int>();
                     p.coef_comm.Add(communication.CommID);
                 }
-                
             }
+            DrawCommunications(Color.Green, 2);
         }
         public Form1()
         {
@@ -117,6 +118,29 @@ namespace DirectionsAB
             }
             else
                 MessageBox.Show("Невозможно построить маршрут!\nНе существует активных областей.");
+        }
+
+        //Отрисовка связей между областями (узлами графа путей)
+        public void DrawCommunications(Color color, int width) 
+        {
+            int count=0;
+            List<DirectionsAB.Point> p1p2 = new List<DirectionsAB.Point>();
+            foreach (Communication c in context.Communications)
+            {
+                p1p2.Add(points.FirstOrDefault(p => p.RegionId == c.RegionID));
+                if (count == 1)
+                {
+                    gpu.DrawLine(new Pen(color, width),
+                    p1p2[0].X,
+                    p1p2[0].Y,
+                    p1p2[1].X,
+                    p1p2[1].Y);
+                    count = 0;
+                    p1p2.Clear();
+                }
+                else
+                    count++;
+            }
         }
         public void DrawAddPoint()
         {
@@ -204,6 +228,7 @@ namespace DirectionsAB
                                   (p.X2 - p.X1) * coef,
                                   (p.Y2 - p.Y1) * coef);
             }
+            DrawCommunications(Color.Green, 3);
             
         }
 

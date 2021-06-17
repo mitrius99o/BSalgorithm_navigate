@@ -12,8 +12,6 @@ namespace DirectionsAB
 {
     public class PointCommunications                             //класс, описывающий связи между точками
     {
-        public static string connString= @"Data Source=desktop-il0k9bd\sqlexpress;Initial Catalog=rooms;User ID=sa;Password=sa";
-        public static DataContext db=new DataContext(connString);
         static MapContext context=new MapContext();
 
         public static List<Point> points = new List<Point>();    //список, который хранит все точки на карте
