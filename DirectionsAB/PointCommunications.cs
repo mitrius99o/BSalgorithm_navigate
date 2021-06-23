@@ -50,6 +50,8 @@ namespace DirectionsAB
             int random_coef = r.Next();                   //создание экземпляра класса Random, с помощью Next() иниц. новый ID
             while (use_coef_comm.Contains(random_coef))   //используем новый ID только тогда, когда нет совпадения с использующимися 
                 random_coef = r.Next();
+            if (a.coef_comm == null) a.coef_comm = new List<int>();
+            if (b.coef_comm == null) b.coef_comm = new List<int>();
             a.coef_comm.Add(random_coef);                 //добавляем уникальный ID в коллекции
             b.coef_comm.Add(random_coef);                 //обеих точек, тем самым достигая их "связки"
 

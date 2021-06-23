@@ -39,6 +39,8 @@ namespace DirectionsAB
                                   points.Last().Y1*coef,
                                   (points.Last().X2 - points.Last().X1)*coef,
                                   (points.Last().Y2 - points.Last().Y1)*coef);
+                PointF p = new PointF(points.Last().X-6, points.Last().Y-6);
+                gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
             }
             foreach (Point p in points)
             {
@@ -135,6 +137,13 @@ namespace DirectionsAB
                     p1p2[0].Y,
                     p1p2[1].X,
                     p1p2[1].Y);
+                    PointF p_text = new PointF();
+                    float lengthX = Math.Abs(p1p2[0].X - p1p2[1].X);
+                    float lengthY = Math.Abs(p1p2[0].Y - p1p2[1].Y);
+                    p_text.X = p1p2[0].X >= p1p2[1].X ? (p1p2[1].X + lengthX/2) : (p1p2[0].X + lengthX/2);
+                    p_text.Y = p1p2[0].Y >= p1p2[1].Y ? (p1p2[1].Y + lengthY/2) : (p1p2[0].Y + lengthY/2);
+                    gpu.DrawEllipse(new Pen(Color.Red, width), new RectangleF(p_text, new SizeF(3, 3)));
+                    gpu.DrawString(c.CommID.ToString(), new Font("Times New Roman", 12), Brushes.Red, p_text);
                     count = 0;
                     p1p2.Clear();
                 }
@@ -151,6 +160,8 @@ namespace DirectionsAB
                                   start.Y * coef,
                                   (finish.X - start.X) * coef,
                                   (finish.Y - start.Y) * coef);
+                PointF p = new PointF(points.Last().X*coef - 6, points.Last().Y*coef - 6);
+                gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
                 listBox1.Items.Add($"Область {points.Count - 1}, " +
                     $"координаты ({points[points.Count - 1].X} , {points[points.Count - 1].Y})");
             }
