@@ -16,13 +16,13 @@ namespace DirectionsAB
 
         public float X
         {
-            get { return x*coef; }
-            set { x = value; }
+            get { return x; }
+            set { x = value*coef; }
         }
         public float Y
         {
-            get { return y*coef; }
-            set { y = value; }
+            get { return y; }
+            set { y = value*coef; }
         }
         
         public System.Drawing.Point p1;                                    //верхняя левая граница области

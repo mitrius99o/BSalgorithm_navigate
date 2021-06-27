@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DirectionsAB.Models;
 using static DirectionsAB.PointCommunications;
 
 namespace DirectionsAB
@@ -21,7 +22,8 @@ namespace DirectionsAB
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
-
+        MapContext context = new MapContext();
+        MapContext context2 = new MapContext();
         private void Form1_Load(object sender, EventArgs e)
         {
             coef = 1920 / map.Width;
@@ -29,6 +31,28 @@ namespace DirectionsAB
             {
                 coef += 0.001f;
             }
+            foreach(DirectionsAB.Models.Region r in context.Regions)
+            {
+                points.Add((Point)r);
+                gpu.DrawRectangle(new Pen(Color.Blue, 3),
+                                  points.Last().X1*coef,
+                                  points.Last().Y1*coef,
+                                  (points.Last().X2 - points.Last().X1)*coef,
+                                  (points.Last().Y2 - points.Last().Y1)*coef);
+                PointF p = new PointF(points.Last().X-6, points.Last().Y-6);
+                gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
+            }
+            foreach (Point p in points)
+            {
+                IEnumerable<DirectionsAB.Models.Communication> communications = context.Communications.Where(c => c.RegionID == p.RegionId);
+                foreach (DirectionsAB.Models.Communication communication in communications)
+                {
+                    if(p.coef_comm==null)
+                        p.coef_comm = new List<int>();
+                    p.coef_comm.Add(communication.CommID);
+                }
+            }
+            DrawCommunications(Color.Green, 2);
         }
         public Form1()
         {
@@ -67,13 +91,13 @@ namespace DirectionsAB
             int indP1=0, indP2=0;
             for (int i = 0; i < points.Count; i++)
             {
-                if (start.X >= points[i].p1.X && start.X <= points[i].p2.X &&
-                    start.Y >= points[i].p1.Y && start.Y <= points[i].p2.Y)
+                if (start.X >= points[i].X1 && start.X <= points[i].X2 &&
+                    start.Y >= points[i].Y1 && start.Y <= points[i].Y2)
                 {
                     indP1 = i;
                 }
-                else if (finish.X >= points[i].p1.X && finish.X <= points[i].p2.X &&
-                    finish.Y >= points[i].p1.Y && finish.Y <= points[i].p2.Y)
+                else if (finish.X >= points[i].X1 && finish.X <= points[i].X2 &&
+                    finish.Y >= points[i].Y1 && finish.Y <= points[i].Y2)
                 {
                     indP2 = i;
                 }
@@ -97,6 +121,36 @@ namespace DirectionsAB
             else
                 MessageBox.Show("Невозможно построить маршрут!\nНе существует активных областей.");
         }
+
+        //Отрисовка связей между областями (узлами графа путей)
+        public void DrawCommunications(Color color, int width) 
+        {
+            int count=0;
+            List<DirectionsAB.Point> p1p2 = new List<DirectionsAB.Point>();
+            foreach (Communication c in context.Communications)
+            {
+                p1p2.Add(points.FirstOrDefault(p => p.RegionId == c.RegionID));
+                if (count == 1)
+                {
+                    gpu.DrawLine(new Pen(color, width),
+                    p1p2[0].X,
+                    p1p2[0].Y,
+                    p1p2[1].X,
+                    p1p2[1].Y);
+                    PointF p_text = new PointF();
+                    float lengthX = Math.Abs(p1p2[0].X - p1p2[1].X);
+                    float lengthY = Math.Abs(p1p2[0].Y - p1p2[1].Y);
+                    p_text.X = p1p2[0].X >= p1p2[1].X ? (p1p2[1].X + lengthX/2) : (p1p2[0].X + lengthX/2);
+                    p_text.Y = p1p2[0].Y >= p1p2[1].Y ? (p1p2[1].Y + lengthY/2) : (p1p2[0].Y + lengthY/2);
+                    gpu.DrawEllipse(new Pen(Color.Red, width), new RectangleF(p_text, new SizeF(3, 3)));
+                    gpu.DrawString(c.CommID.ToString(), new Font("Times New Roman", 12), Brushes.Red, p_text);
+                    count = 0;
+                    p1p2.Clear();
+                }
+                else
+                    count++;
+            }
+        }
         public void DrawAddPoint()
         {
             if (CreatePoint(start, finish))
@@ -106,6 +160,8 @@ namespace DirectionsAB
                                   start.Y * coef,
                                   (finish.X - start.X) * coef,
                                   (finish.Y - start.Y) * coef);
+                PointF p = new PointF(points.Last().X*coef - 6, points.Last().Y*coef - 6);
+                gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
                 listBox1.Items.Add($"Область {points.Count - 1}, " +
                     $"координаты ({points[points.Count - 1].X} , {points[points.Count - 1].Y})");
             }
@@ -146,8 +202,8 @@ namespace DirectionsAB
             if (tabControl1.SelectedTab == tabPage2)
                 for (int i = 0; i < points.Count; i++)
                 {
-                    if (e.X >= points[i].p1.X && e.X <= points[i].p2.X &&
-                        e.Y >= points[i].p1.Y && e.Y <= points[i].p2.Y)
+                    if (e.X >= points[i].X1 && e.X <= points[i].X2 &&
+                        e.Y >= points[i].Y1 && e.Y <= points[i].Y2)
                     {
                         point_name.Text = Convert.ToString(points[i].Name);
                         label15.Text = Convert.ToString(points[i].X);
@@ -175,6 +231,16 @@ namespace DirectionsAB
             map.Image = Properties.Resources.firstfloor_land;
             gpu = Graphics.FromImage(map.Image);
             map.Invalidate();
+            foreach (Point p in points)
+            {
+                gpu.DrawRectangle(new Pen(Color.Blue, 3),
+                                  p.X1 * coef,
+                                  p.Y1 * coef,
+                                  (p.X2 - p.X1) * coef,
+                                  (p.Y2 - p.Y1) * coef);
+            }
+            DrawCommunications(Color.Green, 3);
+            
         }
 
         
