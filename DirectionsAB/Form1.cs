@@ -126,10 +126,10 @@ namespace DirectionsAB
         public void DrawCommunications(Color color, int width) 
         {
             int count=0;
-            List<DirectionsAB.Point> p1p2 = new List<DirectionsAB.Point>();
+            DirectionsAB.Point[] p1p2 = (DirectionsAB.Point[])new DirectionsAB.Point[2];
             foreach (Communication c in context.Communications)
             {
-                p1p2.Add(points.FirstOrDefault(p => p.RegionId == c.RegionID));
+                p1p2[count]=(Point)context2.Regions.FirstOrDefault(p => p.RegionId == c.RegionID);
                 if (count == 1)
                 {
                     gpu.DrawLine(new Pen(color, width),
@@ -145,7 +145,7 @@ namespace DirectionsAB
                     gpu.DrawEllipse(new Pen(Color.Red, width), new RectangleF(p_text, new SizeF(3, 3)));
                     gpu.DrawString(c.CommID.ToString(), new Font("Times New Roman", 12), Brushes.Red, p_text);
                     count = 0;
-                    p1p2.Clear();
+                    p1p2[0] = p1p2[1] = null;
                 }
                 else
                     count++;
@@ -231,15 +231,17 @@ namespace DirectionsAB
             map.Image = Properties.Resources.firstfloor_land;
             gpu = Graphics.FromImage(map.Image);
             map.Invalidate();
-            foreach (Point p in points)
+            foreach (Point p in context.Regions)
             {
                 gpu.DrawRectangle(new Pen(Color.Blue, 3),
                                   p.X1 * coef,
                                   p.Y1 * coef,
                                   (p.X2 - p.X1) * coef,
                                   (p.Y2 - p.Y1) * coef);
+                PointF p_ = new PointF(p.X - 6, p.Y - 6);
+                gpu.DrawString(p.Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p_);
             }
-            DrawCommunications(Color.Green, 3);
+            DrawCommunications(Color.Green, 2);
             
         }
 

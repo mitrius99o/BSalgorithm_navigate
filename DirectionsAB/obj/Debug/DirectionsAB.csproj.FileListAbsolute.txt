@@ -14,7 +14,6 @@ C:\Users\Dmitry\Documents\source\repos\DirectionsAB\DirectionsAB\obj\Debug\Direc
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.exe.config
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.exe
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\DirectionsAB.pdb
-C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csprojAssemblyReference.cache
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.CoreCompileInputs.cache
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.exe
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.pdb
@@ -47,3 +46,4 @@ C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\E
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\EntityFramework.xml
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csproj.CopyComplete
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.AssemblyReference.cache

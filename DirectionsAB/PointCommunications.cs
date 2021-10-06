@@ -29,12 +29,15 @@ namespace DirectionsAB
             //float yc = start.Y + (finish.Y - start.Y)/2;
             if (start.X + (finish.X - start.X) / 2 > 0 && start.Y + (finish.Y - start.Y) / 2 > 0)
             {
-                Point p = new Point($"{points.Count}", start.X, start.Y, finish.X, finish.Y);
+                Region p = new Point($"{points.Count}", start.X, start.Y, finish.X, finish.Y);
 
-                points.Add(p);
+
+                points.Add((Point)p);
 
                 context.Regions.Add(p);//Я изменил адрес базы данных
+                
                 context.SaveChanges();
+
 
                 return true;
             }

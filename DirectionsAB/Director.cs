@@ -19,12 +19,12 @@ namespace DirectionsAB
             {
                 case true:
                     builder.BuildWayA(ref a);
-                    builder.BuildWayB(ref b);
+                    //builder.BuildWayB(ref b);
                     builder.GetWay(ref a, ref b);
                     break;
                 case false:
                     while ((a.coef_comm.Intersect(b.coef_comm).Count() != 1)
-                        & (a.Name != b.Name))
+                        && (a.Name != b.Name))
                     {
                         builder.BuildWayB(ref b);
 
