@@ -52,9 +52,28 @@ namespace DirectionsAB
         {
              if (b.coef_comm.Count() <= 2)                            //если В - линейный участок
              {
-                 if (!wayB.Contains(b))                               //и если нет В в списке нелинейного пути вблизи В
-                     wayB.Add(b);                                     //то добавляем в этот список
-                 b = PointCommunications.NextPointByWay(b, wayB);     //и идем к следующей точке от В и переопределяем ее
+                //wayB.Add(b);
+                if (!wayB.Contains(b))       //и если нет В в списке нелинейного пути вблизи В
+                {
+                    wayB.Add(b);                                     //то добавляем в этот список
+                    b = PointCommunications.NextPointByWay(b, wayB);
+                }
+                else if(wayB.Count!=0&& b.coef_comm.Count() == 1)
+                {
+                    wayB.Add(b);
+                    List<Point> buff = new List<Point>();
+                    foreach (Point o in wayB) buff.Add(o);
+
+                    b = wayB.First();
+                    buff.Remove(wayB.First());
+                    wayB.Clear();
+                    wayB.Add(b);
+
+                    b = PointCommunications.NextPointByWay(b, buff);
+
+                    //берем другую точку, которая в другой стороне и не содержится в wayB
+                }
+                      //и идем к следующей точке от В и переопределяем ее
              }
         }
         public override ResultWay GetWay(ref Point a, ref Point b)

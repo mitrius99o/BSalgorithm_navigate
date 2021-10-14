@@ -117,6 +117,7 @@ namespace DirectionsAB
                 builder.wayB.Clear();
                 builder.fork.Clear();
                 builder.resultWay.resultPoints.Clear();
+                bufferPoints.Clear();
             }
             else
                 MessageBox.Show("Невозможно построить маршрут!\nНе существует активных областей.");
