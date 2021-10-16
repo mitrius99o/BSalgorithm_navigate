@@ -10,7 +10,6 @@ namespace DirectionsAB
     {
         public ResultWay resultWay = new ResultWay();
 
-        Stack<Point> bufferPoints;
         public List<Point> wayA = new List<Point>();                        //если точки не связаны напрямую, то создаем 3 списка
         public List<Point> wayB = new List<Point>();                        //линейный путь от точки А к точке B, линейный путь от точки В к А
         public List<Point> fork = new List<Point>();                        //список "вилка" из точек, входящие в нелинейный участок пути 
@@ -20,8 +19,29 @@ namespace DirectionsAB
         {
             if (!wayA.Contains(a) && (a.coef_comm.Count() <= 2))
             {
-                wayA.Add(a);                                          //то уже идем от точки А, добавляя ее в коллекцию вблизи А
-                a = PointCommunications.NextPointByWay(a, wayA);      //и берем следующую точку по пути от А и переопределяем ее
+                if (wayA.Count == 0 || wayB.Count == 0)
+                {
+                    wayA.Add(a);                                          //то уже идем от точки А, добавляя ее в коллекцию вблизи А
+                    a = PointCommunications.NextPointByWay(a, wayA);      //и берем следующую точку по пути от А и переопределяем ее
+                    return true;
+                }
+                else if (wayA.First() != wayB.Last())
+                {
+                    wayA.Add(a);
+                    List<Point> buff = new List<Point>();
+                    foreach (Point o in wayA) buff.Add(o);
+
+                    a = wayA.First();
+                    buff.Remove(wayA.First());
+                    wayA.Clear();
+                    wayA.Add(a);
+                }
+                else
+                {
+                    wayA.Add(a);                                     //то добавляем в этот список
+                    a = PointCommunications.NextPointByWay(a, wayA);
+                    return true;
+                }
                 return true;
             }
             else
@@ -30,19 +50,39 @@ namespace DirectionsAB
         }
         public override void BuildWayFork(ref Point a, ref Point b)
         {
+            List<Point> buff = new List<Point>();
+            PointCommunications.bufferPoints.Push(b);
             for (int i = 0; (a.coef_comm.Intersect(b.coef_comm).Count() != 1)          //пока точки не связаны напрямую
                                     & (a.Name != b.Name); i++)
             {
+                
                 if (!fork.Contains(b)) fork.Add(b);                                    //добавляем В "вилку"
-                b = PointCommunications.NextPointByFork(b, fork);                      //и берем следующую точку по нелинейному участку, не важно по какому направлению
-                if (fork.Count == 1)                                                   //если в "вилке" 1 элемент
-                    PointCommunications.bufferPoints.Push(b);                          //то запоминаем этот путь, добавляя В в buferpoints
+                b = PointCommunications.NextPointByFork(b, fork.Union(buff).ToList());                      //и берем следующую точку по нелинейному участку, не важно по какому направлению
+                if(b==null) { }
+                else if(b.coef_comm.Count > 2)
+                    PointCommunications.bufferPoints.Push(b);
                 if (b == null)                               //если алгоритм зашел в тупик и не дошел до точки А 
                 {
-                    int count = fork.Count;
-                    for (int j = 0; j < count - 1; j++)      //возвращаемся обратно по пройденному неправильному пути к точке-развилке
-                        fork.Remove(fork.Last());            //удаляя неправильный путь из "вилки" (удаляя точки)
-                    b = fork.Last();
+                    b = PointCommunications.bufferPoints.Peek();
+                    while (b != fork.Last())
+                    {
+                        buff.Add(fork.Last());
+                        fork.Remove(fork.Last());
+                    }
+                    b=(PointCommunications.NextPointByFork(b, fork.Union(buff).ToList())==null)?
+                        PointCommunications.NextPointByFork(b, buff):
+                        PointCommunications.NextPointByFork(b, fork.Union(buff).ToList());
+                    if (b.coef_comm.Count > 2 && !PointCommunications.bufferPoints.Contains(b))
+                        PointCommunications.bufferPoints.Push(b);
+                    if (fork.Contains(b))
+                    {
+                        PointCommunications.bufferPoints.Pop();
+                        while (b != fork.Last())
+                        {
+                            buff.Add(fork.Last());
+                            fork.Remove(fork.Last());
+                        }
+                    }
                 }
             }
             fork.Add(b);                                     //добавляем последнюю найденную точку В в "вилку"
@@ -55,8 +95,27 @@ namespace DirectionsAB
                 //wayB.Add(b);
                 if (!wayB.Contains(b))       //и если нет В в списке нелинейного пути вблизи В
                 {
-                    wayB.Add(b);                                     //то добавляем в этот список
-                    b = PointCommunications.NextPointByWay(b, wayB);
+                    if (wayA.Count == 0 || wayB.Count == 0)
+                    {
+                        wayB.Add(b);                                     //то добавляем в этот список
+                        b = PointCommunications.NextPointByWay(b, wayB);
+                    }
+                    else if(wayB.First() != wayA.Last())
+                    {
+                        wayB.Add(b);
+                        List<Point> buff = new List<Point>();
+                        foreach (Point o in wayB) buff.Add(o);
+
+                        b = wayB.First();
+                        buff.Remove(wayB.First());
+                        wayB.Clear();
+                        wayB.Add(b);
+                    }
+                    else
+                    {
+                        wayB.Add(b);                                     //то добавляем в этот список
+                        b = PointCommunications.NextPointByWay(b, wayB);
+                    }
                 }
                 else if(wayB.Count!=0&& b.coef_comm.Count() == 1)
                 {

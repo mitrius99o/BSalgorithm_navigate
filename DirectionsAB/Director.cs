@@ -18,7 +18,7 @@ namespace DirectionsAB
             switch (a.coef_comm.Intersect(b.coef_comm).Count() == 1)
             {
                 case true:
-                    builder.BuildWayA(ref a);
+                    //builder.BuildWayA(ref a);
                     //builder.BuildWayB(ref b);
                     builder.GetWay(ref a, ref b);
                     break;
@@ -30,12 +30,9 @@ namespace DirectionsAB
 
                         if (a.coef_comm.Intersect(b.coef_comm).Count() == 1)
                             break;
-                        else                                                
+                        else if(!builder.BuildWayA(ref a))                                             
                         {
-                            if (!builder.BuildWayA(ref a))
-                            {
-                                builder.BuildWayFork(ref a, ref b);
-                            }
+                            builder.BuildWayFork(ref a, ref b);
                         }
                     }
                     builder.GetWay(ref a, ref b);

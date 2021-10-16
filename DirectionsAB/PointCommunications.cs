@@ -97,7 +97,7 @@ namespace DirectionsAB
             return points.Find(x => IsCommunicated(point, x)    //с помощью метода-расширения Find ищется точка, имеющая прямой путь с поданной в параметр 
                         && x != point                                 //эта точка не равна поданной в параметр
                         && (x.coef_comm.Count() != 1)                 //проверяемая точка не должна быть тупиком
-                        && !bufferPoints.Contains(x)                   //она не содержится в коллекции проверенных путей buferpoints
+                        // !bufferPoints.Contains(x)                   //она не содержится в коллекции проверенных путей buferpoints
                         && !way.Contains(x));                         //этой точки нет в  коллекции-пути
         }
     }
