@@ -63,9 +63,79 @@ namespace DirectionsAB.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Eighthfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Eighthfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap firstfloor_land {
             get {
                 object obj = ResourceManager.GetObject("firstfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fivethfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Fivethfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fourthfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Fourthfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Secondfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Secondfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seventhfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("seventhfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sixthfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Sixthfloor_land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Thirdfloor_land {
+            get {
+                object obj = ResourceManager.GetObject("Thirdfloor_land", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

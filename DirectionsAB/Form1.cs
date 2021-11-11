@@ -26,8 +26,8 @@ namespace DirectionsAB
         MapContext context2 = new MapContext();
         private void Form1_Load(object sender, EventArgs e)
         {
-            coef = 1920 / map.Width;
-            while (coef<(double)1920 / map.Width)
+            coef = 5505 / map.Width;
+            while (coef<(double)5505 / map.Width)
             {
                 coef += 0.001f;
             }
@@ -229,7 +229,7 @@ namespace DirectionsAB
 
         private void button4_Click(object sender, EventArgs e)//обновляет карту полностью
         {
-            map.Image = Properties.Resources.firstfloor_land;
+            map.Image = Properties.Resources.seventhfloor_land;
             gpu = Graphics.FromImage(map.Image);
             map.Invalidate();
             foreach (Point p in context.Regions)
@@ -243,14 +243,26 @@ namespace DirectionsAB
                 gpu.DrawString(p.Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p_);
             }
             DrawCommunications(Color.Green, 2);
-            
         }
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //кнопка построить маршрут
         {
-            
+            director.Construct(
+                (Point)context.Regions.Where(x => x.Name == textBox1.Text).First(),
+                (Point)context.Regions.Where(x => x.Name == textBox2.Text).First());
+            for (int i = 0; i < builder.resultWay.resultPoints.Count - 1; i++)
+            {
+                gpu.DrawLine(new Pen(Color.Red, 10),
+                               builder.resultWay.resultPoints[i].X,
+                               builder.resultWay.resultPoints[i].Y,
+                               builder.resultWay.resultPoints[i + 1].X,
+                               builder.resultWay.resultPoints[i + 1].Y);
+            }
+            builder.wayA.Clear();
+            builder.wayB.Clear();
+            builder.fork.Clear();
+            builder.resultWay.resultPoints.Clear();
+            bufferPoints.Clear();
+            map.Invalidate();
         }
     }
 }

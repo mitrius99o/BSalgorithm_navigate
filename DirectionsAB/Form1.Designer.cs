@@ -367,10 +367,10 @@ namespace DirectionsAB
             // 
             // map
             // 
-            this.map.Image = global::DirectionsAB.Properties.Resources.firstfloor_land;
-            this.map.Location = new System.Drawing.Point(4, 43);
+            this.map.Image = global::DirectionsAB.Properties.Resources.seventhfloor_land;
+            this.map.Location = new System.Drawing.Point(4, 251);
             this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(989, 558);
+            this.map.Size = new System.Drawing.Size(989, 226);
             this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.map.TabIndex = 0;
             this.map.TabStop = false;
