@@ -24,6 +24,8 @@ namespace DirectionsAB
         Form2 commForm;
         MapContext context = new MapContext();
         MapContext context2 = new MapContext();
+
+        //Загрузка приложения
         private void Form1_Load(object sender, EventArgs e)
         {
             coef = 5505 / map.Width;
@@ -86,6 +88,7 @@ namespace DirectionsAB
             }
             return (count == 2) ? true : false;
         }
+        //Отрисовка пути на карте
         public void DrawPath(Color color, int width)
         {
             int indP1=0, indP2=0;
@@ -152,6 +155,7 @@ namespace DirectionsAB
                     count++;
             }
         }
+        //Создание новой области
         public void DrawAddPoint()
         {
             if (CreatePoint(start, finish))
@@ -169,7 +173,7 @@ namespace DirectionsAB
             else
                 MessageBox.Show("Ошибка в создании активной области-точки");
         }
-
+        //Взаимодействие с картой тапом
         private void map_MouseClick(object sender, MouseEventArgs e)
         {
             if (start.IsEmpty||(start.X==0&&start.Y==0))
@@ -197,7 +201,7 @@ namespace DirectionsAB
             }
         }
         
-
+        //Двойной щелчок
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (tabControl1.SelectedTab == tabPage2)
@@ -218,7 +222,8 @@ namespace DirectionsAB
             commForm = new Form2();
             commForm.Show();
         }
-
+        
+        //Обновление информации об областях на карте
         private void button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -227,7 +232,8 @@ namespace DirectionsAB
                    $"координаты ({points[i].X} , {points[i].Y})");
         }
 
-        private void button4_Click(object sender, EventArgs e)//обновляет карту полностью
+        //Обновление карты
+        private void button4_Click(object sender, EventArgs e)
         {
             map.Image = Properties.Resources.seventhfloor_land;
             gpu = Graphics.FromImage(map.Image);
@@ -244,7 +250,8 @@ namespace DirectionsAB
             }
             DrawCommunications(Color.Green, 2);
         }
-        private void button1_Click(object sender, EventArgs e) //кнопка построить маршрут
+        //Построить маршрут
+        private void button1_Click(object sender, EventArgs e) 
         {
             director.Construct(
                 (Point)context.Regions.Where(x => x.Name == textBox1.Text).First(),
