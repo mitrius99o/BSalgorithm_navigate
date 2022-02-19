@@ -250,6 +250,12 @@ namespace DirectionsAB
             }
             DrawCommunications(Color.Green, 2);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //вызов формы для изменения
+        }
+
         //Построить маршрут
         private void button1_Click(object sender, EventArgs e) 
         {

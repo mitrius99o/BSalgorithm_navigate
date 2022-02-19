@@ -51,6 +51,7 @@ namespace DirectionsAB
             this.point_name = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,18 +62,29 @@ namespace DirectionsAB
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.map = new System.Windows.Forms.PictureBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.stage7 = new System.Windows.Forms.TabPage();
+            this.stage1 = new System.Windows.Forms.TabPage();
+            this.stage2 = new System.Windows.Forms.TabPage();
+            this.stage3 = new System.Windows.Forms.TabPage();
+            this.stage4 = new System.Windows.Forms.TabPage();
+            this.stage5 = new System.Windows.Forms.TabPage();
+            this.stage6 = new System.Windows.Forms.TabPage();
+            this.stage8 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.stage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.tabControl1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(992, 40);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1022, 40);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(341, 609);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -268,6 +280,7 @@ namespace DirectionsAB
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.label10);
@@ -284,11 +297,22 @@ namespace DirectionsAB
             this.tabPage3.Text = "Разработка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.ForeColor = System.Drawing.Color.Red;
+            this.button5.Location = new System.Drawing.Point(19, 394);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(270, 41);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Изменить данные области";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(19, 252);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(183, 23);
+            this.button3.Size = new System.Drawing.Size(270, 23);
             this.button3.TabIndex = 6;
             this.button3.Text = "Обновить";
             this.button3.UseVisualStyleBackColor = true;
@@ -298,7 +322,7 @@ namespace DirectionsAB
             // 
             this.button2.Location = new System.Drawing.Point(19, 337);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 40);
+            this.button2.Size = new System.Drawing.Size(270, 40);
             this.button2.TabIndex = 5;
             this.button2.Text = "Связать две области";
             this.button2.UseVisualStyleBackColor = true;
@@ -318,13 +342,13 @@ namespace DirectionsAB
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(4, 111);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(213, 134);
+            this.listBox1.Size = new System.Drawing.Size(307, 134);
             this.listBox1.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 67);
+            this.label9.Location = new System.Drawing.Point(88, 68);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(126, 13);
             this.label9.TabIndex = 1;
@@ -333,7 +357,7 @@ namespace DirectionsAB
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 54);
+            this.label8.Location = new System.Drawing.Point(88, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(144, 13);
             this.label8.TabIndex = 1;
@@ -342,7 +366,7 @@ namespace DirectionsAB
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 41);
+            this.label7.Location = new System.Drawing.Point(88, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 13);
             this.label7.TabIndex = 1;
@@ -351,7 +375,7 @@ namespace DirectionsAB
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 28);
+            this.label6.Location = new System.Drawing.Point(88, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 13);
             this.label6.TabIndex = 1;
@@ -368,7 +392,7 @@ namespace DirectionsAB
             // map
             // 
             this.map.Image = global::DirectionsAB.Properties.Resources.seventhfloor_land;
-            this.map.Location = new System.Drawing.Point(4, 251);
+            this.map.Location = new System.Drawing.Point(6, 140);
             this.map.Name = "map";
             this.map.Size = new System.Drawing.Size(989, 226);
             this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -377,13 +401,105 @@ namespace DirectionsAB
             this.map.MouseClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseClick);
             this.map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.stage1);
+            this.tabControl2.Controls.Add(this.stage2);
+            this.tabControl2.Controls.Add(this.stage3);
+            this.tabControl2.Controls.Add(this.stage4);
+            this.tabControl2.Controls.Add(this.stage5);
+            this.tabControl2.Controls.Add(this.stage6);
+            this.tabControl2.Controls.Add(this.stage7);
+            this.tabControl2.Controls.Add(this.stage8);
+            this.tabControl2.Location = new System.Drawing.Point(12, 40);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1004, 610);
+            this.tabControl2.TabIndex = 2;
+            // 
+            // stage7
+            // 
+            this.stage7.Controls.Add(this.map);
+            this.stage7.Location = new System.Drawing.Point(4, 22);
+            this.stage7.Name = "stage7";
+            this.stage7.Padding = new System.Windows.Forms.Padding(3);
+            this.stage7.Size = new System.Drawing.Size(996, 584);
+            this.stage7.TabIndex = 0;
+            this.stage7.Text = "7 Этаж";
+            this.stage7.UseVisualStyleBackColor = true;
+            // 
+            // stage1
+            // 
+            this.stage1.Location = new System.Drawing.Point(4, 22);
+            this.stage1.Name = "stage1";
+            this.stage1.Padding = new System.Windows.Forms.Padding(3);
+            this.stage1.Size = new System.Drawing.Size(996, 584);
+            this.stage1.TabIndex = 1;
+            this.stage1.Text = "1 Этаж";
+            this.stage1.UseVisualStyleBackColor = true;
+            // 
+            // stage2
+            // 
+            this.stage2.Location = new System.Drawing.Point(4, 22);
+            this.stage2.Name = "stage2";
+            this.stage2.Padding = new System.Windows.Forms.Padding(3);
+            this.stage2.Size = new System.Drawing.Size(996, 584);
+            this.stage2.TabIndex = 2;
+            this.stage2.Text = "2 Этаж";
+            this.stage2.UseVisualStyleBackColor = true;
+            // 
+            // stage3
+            // 
+            this.stage3.Location = new System.Drawing.Point(4, 22);
+            this.stage3.Name = "stage3";
+            this.stage3.Size = new System.Drawing.Size(996, 584);
+            this.stage3.TabIndex = 3;
+            this.stage3.Text = "3 Этаж";
+            this.stage3.UseVisualStyleBackColor = true;
+            // 
+            // stage4
+            // 
+            this.stage4.Location = new System.Drawing.Point(4, 22);
+            this.stage4.Name = "stage4";
+            this.stage4.Size = new System.Drawing.Size(996, 584);
+            this.stage4.TabIndex = 4;
+            this.stage4.Text = "4 Этаж";
+            this.stage4.UseVisualStyleBackColor = true;
+            // 
+            // stage5
+            // 
+            this.stage5.Location = new System.Drawing.Point(4, 22);
+            this.stage5.Name = "stage5";
+            this.stage5.Size = new System.Drawing.Size(996, 584);
+            this.stage5.TabIndex = 5;
+            this.stage5.Text = "5 Этаж";
+            this.stage5.UseVisualStyleBackColor = true;
+            // 
+            // stage6
+            // 
+            this.stage6.Location = new System.Drawing.Point(4, 22);
+            this.stage6.Name = "stage6";
+            this.stage6.Size = new System.Drawing.Size(996, 584);
+            this.stage6.TabIndex = 6;
+            this.stage6.Text = "6 Этаж";
+            this.stage6.UseVisualStyleBackColor = true;
+            // 
+            // stage8
+            // 
+            this.stage8.Location = new System.Drawing.Point(4, 22);
+            this.stage8.Name = "stage8";
+            this.stage8.Size = new System.Drawing.Size(996, 584);
+            this.stage8.TabIndex = 7;
+            this.stage8.Text = "8 Этаж";
+            this.stage8.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 728);
+            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.map);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -399,6 +515,8 @@ namespace DirectionsAB
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.stage7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -435,5 +553,15 @@ namespace DirectionsAB
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         public PictureBox map;
+        private TabControl tabControl2;
+        private TabPage stage7;
+        private TabPage stage1;
+        private Button button5;
+        private TabPage stage2;
+        private TabPage stage3;
+        private TabPage stage4;
+        private TabPage stage5;
+        private TabPage stage6;
+        private TabPage stage8;
     }
 }

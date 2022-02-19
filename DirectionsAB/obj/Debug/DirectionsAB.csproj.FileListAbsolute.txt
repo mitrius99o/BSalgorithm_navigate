@@ -47,3 +47,4 @@ C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\E
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Илья\Documents\Studing\BSalgoritm_navigate\DirectionsAB\obj\Debug\DirectionsAB.csproj.CopyComplete
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.csproj.AssemblyReference.cache
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\obj\Debug\DirectionsAB.Form3.resources
