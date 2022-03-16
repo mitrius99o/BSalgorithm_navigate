@@ -22,6 +22,7 @@ namespace DirectionsAB
         RutWayBuilder builder;
         Director director;
         Form2 commForm;
+        Form3 EditForm;
         MapContext context = new MapContext();
         MapContext context2 = new MapContext();
 
@@ -228,7 +229,7 @@ namespace DirectionsAB
         {
             listBox1.Items.Clear();
             for(int i=0;i<points.Count;i++)
-                listBox1.Items.Add($"Область {i}, " +
+                listBox1.Items.Add($"Область {points[i].Name}, " +
                    $"координаты ({points[i].X} , {points[i].Y})");
         }
 
@@ -251,9 +252,10 @@ namespace DirectionsAB
             DrawCommunications(Color.Green, 2);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)//вызов формы для изменения
         {
-            //вызов формы для изменения
+            EditForm = new Form3();
+            EditForm.Show();
         }
 
         //Построить маршрут
