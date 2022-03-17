@@ -535,7 +535,7 @@ namespace DirectionsAB
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
