@@ -81,7 +81,7 @@ namespace DirectionsAB
         {                                                 //есть ли прямой путь между двумя точками, подающимися в параметр
             IEnumerable<int> check = new Stack<int>();    
             check = a.coef_comm.Intersect(b.coef_comm);   //в коллекцию записывается количество общих ID связи у проверяемых точек
-            if (check.Count() == 1)                       //если количество=1, то связь есть
+            if (check.Count() > 0)                       //если количество=1, то связь есть
                 return true;
             else
                 return false;                             //иначе связи нет
