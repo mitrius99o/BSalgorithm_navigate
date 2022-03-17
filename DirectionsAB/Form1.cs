@@ -33,16 +33,27 @@ namespace DirectionsAB
             {
                 coef += 0.001f;
             }
-            foreach(DirectionsAB.Models.Region r in context.Regions)
+            try
             {
-                points.Add((Point)r);
-                gpu.DrawRectangle(new Pen(Color.Blue, 3),
-                                  points.Last().X1*coef,
-                                  points.Last().Y1*coef,
-                                  (points.Last().X2 - points.Last().X1)*coef,
-                                  (points.Last().Y2 - points.Last().Y1)*coef);
-                PointF p = new PointF(points.Last().X-6, points.Last().Y-6);
-                gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
+                foreach (DirectionsAB.Models.Region r in context.Regions)
+                {
+                    points.Add((Point)r);
+                    gpu.DrawRectangle(new Pen(Color.Blue, 3),
+                                      points.Last().X1 * coef,
+                                      points.Last().Y1 * coef,
+                                      (points.Last().X2 - points.Last().X1) * coef,
+                                      (points.Last().Y2 - points.Last().Y1) * coef);
+                    PointF p = new PointF(points.Last().X - 6, points.Last().Y - 6);
+                    gpu.DrawString(points.Last().Name, new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Blue, p);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Что-то пошло не так: {ex.Message}");
+            }
+            finally
+            {
+                
             }
             foreach (Point p in points)
             {
@@ -256,7 +267,7 @@ namespace DirectionsAB
             //вызов формы для изменения
         }
 
-        //Построить маршрут
+        //Построить маршрут через поля ввода
         private void button1_Click(object sender, EventArgs e) 
         {
             director.Construct(
