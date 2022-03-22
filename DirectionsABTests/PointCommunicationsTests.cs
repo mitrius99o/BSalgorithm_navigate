@@ -1,5 +1,7 @@
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DirectionsAB;
+using static DirectionsAB.PointCommunications;
 using System.Collections.Generic;
 
 namespace DirectionsABTests

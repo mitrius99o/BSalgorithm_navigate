@@ -67,3 +67,5 @@ C:\Users\Илья\Desktop\Directions\DirectionsAB\obj\Debug\DirectionsAB.csproj.
 C:\Users\Илья\Desktop\Directions\DirectionsAB\obj\Debug\DirectionsAB.csproj.CopyComplete
 C:\Users\Илья\Desktop\Directions\DirectionsAB\obj\Debug\DirectionsAB.exe
 C:\Users\Илья\Desktop\Directions\DirectionsAB\obj\Debug\DirectionsAB.pdb
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\nunit.framework.dll
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsAB\bin\Debug\nunit.framework.xml

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    class ResultWay
+    public class ResultWay
     {
         public List<Point> resultPoints = new List<Point>();
         public void Add(Point point)

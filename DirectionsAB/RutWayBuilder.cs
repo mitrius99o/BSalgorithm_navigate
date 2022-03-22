@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    class RutWayBuilder : WayBuilder
+    public class RutWayBuilder : WayBuilder
     {
         public ResultWay resultWay = new ResultWay();
 

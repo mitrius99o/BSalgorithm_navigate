@@ -75,8 +75,7 @@ namespace DirectionsAB
             Console.WriteLine($"Cвязь между точками {a.Name} и {b.Name} создана. ID связи: {random_coef}");
         }
 
-        
-
+       
         public static bool IsCommunicated(Point a, Point b)      //метод, возвращающий логическое значение для определения того,
         {                                                 //есть ли прямой путь между двумя точками, подающимися в параметр
             IEnumerable<int> check = new Stack<int>();    

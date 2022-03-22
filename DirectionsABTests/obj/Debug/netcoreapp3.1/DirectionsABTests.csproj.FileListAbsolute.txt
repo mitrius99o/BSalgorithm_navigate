@@ -102,3 +102,4 @@ C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsABTests\obj\Debug\netcorea
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsABTests\obj\Debug\netcoreapp3.1\DirectionsABTests.dll
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsABTests\obj\Debug\netcoreapp3.1\DirectionsABTests.pdb
 C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsABTests\obj\Debug\netcoreapp3.1\DirectionsABTests.genruntimeconfig.cache
+C:\Users\Dmitry\Documents\miit\DirectionsAB\DirectionsABTests\bin\Debug\netcoreapp3.1\nunit.framework.dll

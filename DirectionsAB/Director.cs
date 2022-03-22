@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    class Director
+    public class Director
     {
         WayBuilder builder;
         public Director(WayBuilder builder)

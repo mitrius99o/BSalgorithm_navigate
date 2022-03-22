@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectionsAB
 {
-    abstract class WayBuilder
+    abstract public class WayBuilder
     {
         public abstract bool BuildWayA(ref Point a);
         public abstract void BuildWayFork(ref Point a, ref Point b);
