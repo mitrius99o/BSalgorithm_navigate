@@ -10,10 +10,8 @@ using System.Data.Entity;
 
 namespace DirectionsAB
 {
-    public class PointCommunications                             //класс, описывающий связи между точками
+    public static class PointCommunications                             //класс, описывающий связи между точками
     {
-        static MapContext context=new MapContext();
-
         public static List<Point> points = new List<Point>();    //список, который хранит все точки на карте
         public static List<int> use_coef_comm = new List<int>(); //список, который хранит все уникальные и используемые ID связей между точками
         public static Stack<Point> bufferPoints = new Stack<Point>();
@@ -25,6 +23,7 @@ namespace DirectionsAB
 
         public static bool CreatePoint(System.Drawing.Point start, System.Drawing.Point finish)
         {
+            MapContext context = new MapContext();
             //float xc = start.X + (finish.X - start.X)/2;
             //float yc = start.Y + (finish.Y - start.Y)/2;
             if (start.X + (finish.X - start.X) / 2 > 0 && start.Y + (finish.Y - start.Y) / 2 > 0)
@@ -49,6 +48,7 @@ namespace DirectionsAB
         }
         public static void Communicate(Point a, Point b)  //метод для создания связи между 2мя точками
         {
+            MapContext context = new MapContext();
             Random r = new Random();                      
             int random_coef = r.Next();                   //создание экземпляра класса Random, с помощью Next() иниц. новый ID
             while (use_coef_comm.Contains(random_coef))   //используем новый ID только тогда, когда нет совпадения с использующимися 

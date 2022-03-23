@@ -14,7 +14,7 @@ namespace DirectionsAB
         public List<Point> wayB = new List<Point>();                        //линейный путь от точки А к точке B, линейный путь от точки В к А
         public List<Point> fork = new List<Point>();                        //список "вилка" из точек, входящие в нелинейный участок пути 
 
-        PointCommunications PC = new PointCommunications();          //после редактирования удалить и сделать этот класс статическим
+        //PointCommunications PC = new PointCommunications();          //после редактирования удалить и сделать этот класс статическим
         public override bool BuildWayA(ref Point a)
         {
             if (!wayA.Contains(a) && (a.coef_comm.Count() <= 2))
