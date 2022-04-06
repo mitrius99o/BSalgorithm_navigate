@@ -19,7 +19,7 @@ namespace DirectionsABTests
             bool expected = true;
 
             //act
-            bool actual = PointCommunications.IsCommunicated(a, b);
+            bool actual = IsCommunicated(a, b);
 
             //assert
             Assert.AreEqual(expected, actual);
