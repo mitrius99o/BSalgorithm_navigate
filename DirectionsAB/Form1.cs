@@ -17,7 +17,7 @@ namespace DirectionsAB
     public partial class Form1 : Form
     {
         System.Drawing.Point start, finish;
-        Graphics gpu;
+       Graphics gpu;
         public static float coef;
         RutWayBuilder builder;
         Director director;
@@ -25,7 +25,11 @@ namespace DirectionsAB
         Form3 EditForm;
         MapContext context = new MapContext();
         MapContext context2 = new MapContext();
-
+        public Graphics Gpu
+        {
+            get { return gpu; }
+            set { gpu = value; }
+        }
         //Загрузка приложения
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -265,7 +269,7 @@ namespace DirectionsAB
 
         private void button5_Click(object sender, EventArgs e)//вызов формы для изменения
         {
-            EditForm = new Form3();
+            EditForm = new Form3(this);
             EditForm.Show();
         }
 
